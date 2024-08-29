@@ -9329,12 +9329,12 @@ textarea.form-control {
   .ftco-counter .text strong.number {
     font-weight: 400;
     font-size: 50px;
-    color: #ffb5b5;
+    color: #e9cdcd;
     font-family: "EB Garamond", serif; }
   .ftco-counter .text span {
     font-weight: 400;
-    font-size: 18px;
-    color: #ffb5b5;
+    font-size: 22px;
+    color: #e9cdcd;
     font-family: "EB Garamond", serif; }
   .ftco-counter .text:hover .icon span, .ftco-counter .text:focus .icon span {
     color: #000; }

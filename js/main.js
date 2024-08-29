@@ -171,8 +171,11 @@
 					$this.animateNumber(
 					  {
 					    number: num,
-					    numberStep: comma_separator_number_step
-					  }, 7000
+						numberStep: function(now, tween) {
+							var target = Math.floor(now).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+							$(tween.elem).contents().first().replaceWith(target); // Only update the number, not the +
+						}
+					  }, 3000
 					);
 				});
 				
