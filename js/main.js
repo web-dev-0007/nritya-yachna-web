@@ -3,6 +3,44 @@
  	easing: 'slide'
  });
 
+ $(document).ready(function(){
+	$('.popup-btn').click(function(){ 
+	  var popupBlock = $('#'+$(this).data('popup'));
+	  popupBlock.addClass('active')
+		.find('.fade-out').click(function(){
+		  popupBlock.css('opacity','0').find('.popup-content').css('margin-top','350px');        
+		  setTimeout(function(){
+			$('.popup').removeClass('active');
+			popupBlock.css('opacity','').find('.popup-content').css('margin-top','');
+		  }, 600);
+		});
+   });
+  });
+  
+ function initQuoteCarousel() {
+
+    var $quotesWrapper = $(".cust-quotes");
+    var $quotes = $quotesWrapper.find("blockquote");
+
+    if (!$quotes.length) {
+        return;
+    }
+
+    var selectNextQuote = function () {
+        // keep move first quote in dom to the end to make continous
+        var $quote = $quotesWrapper.find("blockquote:first").detach().appendTo($quotesWrapper);
+
+        setTimeout(selectNextQuote, $quote.data("timeout"));
+    };
+
+    setTimeout(selectNextQuote, $quotes.filter(":first").data("timeout"));
+
+}
+
+$(function () {
+    initQuoteCarousel();
+});
+
 (function($) {
 
 	"use strict";
